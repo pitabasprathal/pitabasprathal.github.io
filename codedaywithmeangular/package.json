@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "git subtree push --prefix dist origin master"
+    "deploy": "git push origin --delete master && git subtree push --prefix codedaywithmeangular/dist origin master"
   },
   "private": true,
   "dependencies": {
