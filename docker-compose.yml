@@ -1,0 +1,33 @@
+version: '3'
+services:
+  codedaywithmefrontend:
+    build: ./codedaywithmeangular
+    ports:
+      - 4200:4200
+    environment:
+      - NODE_ENV=dev
+    volumes:
+      - ./codedaywithmeangular:/usr/src/codedaywithmeangular
+      - /usr/src/codedaywithmeangular/node_modules
+  pg:
+    image: postgres #TODO: need to lock major db version e.g. pg 10
+    ports: 
+      - 5435:5432
+    environment:
+      POSTGRES_PASSWORD: postgrespwd
+  
+  elasticsearch:
+    image: elasticsearch
+    environment:
+      ES_JAVA_OPTS: "-Xms750m -Xmx750m"
+  
+  codedaywithmebackend:
+    build: ./codedaywithme
+    ports:
+      - 3000:3000
+    depends_on:
+      - pg
+    volumes:
+      - ./codedaywithme:/codedaywithme
+    environment:
+      CORS_ORGINS: "*"

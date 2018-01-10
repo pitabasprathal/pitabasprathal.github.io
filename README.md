@@ -1,27 +1,25 @@
-# Pitabasprathal.Github.Io
+# Docker setup 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
+This project was generated with docker and run with docker compose.Run these commands from root folder where `docker-compose.yml` file present.
 
-## Development server
+## Build containers
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `docker-compose build container_name` to build specific container
 
-## Code scaffolding
+Run `docker-compose build` to build all container
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Run containers
 
-## Build
+Run `docker-compose up container_name` to run specific container
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `docker-compose up` to run all container
 
-## Running unit tests
+## Stop containers
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `docker-compose down container_name` to stop specific container
 
-## Running end-to-end tests
+Run `docker-compose down` to stop all container
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## To access command line tools 
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run `docker-compose exec container_name command` 
